@@ -117,6 +117,44 @@
         </div>
     </section>
 
+<div class="relative group perspective-1000">
+    <div class="absolute -inset-1 bg-gradient-to-r from-volt-primary to-volt-secondary rounded-[2.5rem] blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+    
+    <div class="relative flex flex-col bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-black/5 dark:border-white/10 leading-none overflow-hidden transition-all duration-500 hover:scale-[1.02]">
+        
+        <div class="flex items-center justify-between mb-8">
+            <div class="w-14 h-14 bg-volt-primary/10 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-500">
+                🚀
+            </div>
+            <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Volt Engine</span>
+        </div>
+
+        <h3 class="text-2xl font-black mb-3 dark:text-white leading-tight">
+            تطوير <span class="text-volt-primary">فائق السرعة</span>
+        </h3>
+        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">
+            استمتع بتجربة بناء واجهات لا تضاهى مع أدوات VoltJS التي تجمع بين الأناقة المطلقة والأداء العبقري.
+        </p>
+
+        <button class="w-full py-4 rounded-xl bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/10 text-sm font-bold hover:bg-volt-primary hover:text-black transition-colors duration-300 uppercase tracking-widest">
+            اكتشف المزيد
+        </button>
+
+        <div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white/10 opacity-40 group-hover:animate-shine"></div>
+    </div>
+</div>
+
+<style>
+    /* أنيميشن اللمعان */
+    @keyframes shine {
+        100% { left: 125%; }
+    }
+    .animate-shine { animation: shine 0.7s; }
+    .perspective-1000 { perspective: 1000px; }
+</style>
+
+    
+
     <footer class="py-20 px-6 border-t border-black/5 dark:border-white/5 bg-white dark:bg-[#020617] transition-colors">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
             <div class="text-xl font-black">⚡ VoltJS</div>
