@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoltJS | السرعة والجمال في ملف واحد</title>
+    <title>VoltJS | السرعة والجمال</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <script>
@@ -11,175 +11,73 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { 
-                        'cairo': ['Cairo', 'sans-serif'],
-                        'mono': ['Fira Code', 'monospace'] 
-                    },
-                    colors: {
-                        volt: { primary: '#00f2fe', secondary: '#4facfe', accent: '#f9d423', dark: '#0b0f1a' }
-                    }
+                    fontFamily: { 'cairo': ['Cairo', 'sans-serif'], 'mono': ['Fira Code', 'monospace'] },
+                    colors: { volt: { primary: '#00f2fe', secondary: '#4facfe', dark: '#0b0f1a' } }
                 }
             }
         }
     </script>
     <style>
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .dark .glass { background: rgba(15, 23, 42, 0.3); }
         .text-gradient { background: linear-gradient(to right, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-mesh { background-image: radial-gradient(at 0% 0%, hsla(203,100%,70%,0.1) 0, transparent 50%), radial-gradient(at 100% 100%, hsla(262,100%,70%,0.1) 0, transparent 50%); }
-        .step-line::before { content: ''; position: absolute; right: 1.25rem; top: 2.5rem; height: calc(100% - 2rem); border-right: 2px dashed rgba(79, 172, 254, 0.3); z-index: 0; }
-        .ltr-code { direction: ltr !important; text-align: left !important; font-family: 'Fira Code', monospace !important; }
+        .ltr-code { direction: ltr !important; text-align: left !important; }
     </style>
 </head>
-<body class="bg-white dark:bg-volt-dark font-cairo text-slate-800 dark:text-slate-200 transition-colors duration-500">
+<body class="bg-white dark:bg-volt-dark font-cairo text-slate-800 dark:text-slate-200 transition-colors duration-500 overflow-x-hidden">
 
-    <nav class="fixed w-full z-50 glass top-0 border-b border-slate-200/50 dark:border-white/10 transition-colors">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black tracking-tighter flex items-center gap-2 dark:text-white">
-                <span class="text-volt-primary animate-pulse">⚡</span> <span>VoltJS</span>
+    <nav class="fixed w-full z-50 glass top-0 border-b border-slate-200/50 dark:border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
+            <div class="text-xl sm:text-2xl font-black flex items-center gap-2 dark:text-white">
+                <span class="text-volt-primary">⚡</span> <span>VoltJS</span>
             </div>
-            <div class="flex items-center gap-6">
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-all border border-transparent hover:border-volt-primary/30">
-                    <span id="theme-icon" class="text-xl">🌙</span>
+            <div class="flex items-center gap-3 sm:gap-6">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                    <span id="theme-icon" class="text-lg sm:text-xl">🌙</span>
                 </button>
-                <a href="#features" class="hidden md:block hover:text-volt-primary transition-colors font-medium">المميزات</a>
-                <a href="#live-demos" class="hidden md:block hover:text-volt-primary transition-colors font-medium">الأمثلة</a>
-                <a href="#install" class="bg-gradient-to-r from-volt-secondary to-volt-primary text-white px-6 py-2 rounded-xl font-bold shadow-lg shadow-blue-500/30 hover:scale-105 transition-transform">ابدأ الآن</a>
+                <a href="#install" class="bg-gradient-to-r from-volt-secondary to-volt-primary text-white px-4 sm:px-6 py-2 rounded-xl font-bold text-sm sm:text-base shadow-lg hover:scale-105 transition-transform">ابدأ</a>
             </div>
         </div>
     </nav>
 
-    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden hero-mesh">
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden hero-mesh">
         <div class="container mx-auto px-6 text-center z-10">
-            <div class="inline-block px-4 py-1.5 mb-6 rounded-full glass border-volt-primary/30 text-volt-primary text-sm font-bold tracking-wide animate-bounce bg-volt-primary/5">
-                إصدار v2.0 الجديد كلياً متوفر الآن 🎉
+            <div class="inline-block px-4 py-1.5 mb-6 rounded-full glass border-volt-primary/30 text-volt-primary text-xs sm:text-sm font-bold bg-volt-primary/5">
+                إصدار v2.0 الجديد كلياً 🎉
             </div>
-            <h1 class="text-5xl md:text-8xl font-black mb-8 leading-tight dark:text-white">
-                مستقبل الويب <br><span class="text-gradient">أخف، أسرع، وأجمل</span>
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-black mb-6 leading-[1.2] dark:text-white">
+                مستقبل الويب <br><span class="text-gradient">أخف وأجمل</span>
             </h1>
-            <p class="text-lg md:text-2xl text-slate-500 dark:text-slate-400 max-w-3xl mx-auto mb-12 font-light">
-                محرك الأدوات الذكي الذي يضمن لك سرعة 100% في الأداء مع تصاميم تسحر المستخدمين بلمسة واحدة.
+            <p class="text-base sm:text-xl md:text-2xl text-slate-500 dark:text-slate-400 max-w-2xl mx-auto mb-10 font-light px-4">
+                محرك الأدوات الذكي الذي يضمن لك سرعة فائقة مع تصاميم تسحر المستخدمين بلمسة واحدة.
             </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="#install" class="w-full sm:w-auto bg-slate-900 dark:bg-white text-white dark:text-volt-dark px-10 py-4 rounded-2xl font-black text-lg shadow-2xl transition-all">التثبيت السريع</a>
-                <div class="ltr-code glass px-6 py-3 rounded-xl border-volt-primary/20 text-volt-primary font-mono text-sm">npm install voltjs</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="py-24 relative">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-black mb-16 dark:text-white">لماذا <span class="text-gradient">VoltJS</span>؟</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-white/5 hover:border-volt-primary transition-all group">
-                    <div class="text-4xl mb-6 group-hover:scale-125 transition-transform inline-block">🚀</div>
-                    <h3 class="text-xl font-bold mb-4 dark:text-white">تحميل عند الطلب</h3>
-                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">يتم تحميل الأكواد فقط عند ظهور العنصر في الشاشة، مما يوفر استهلاك البيانات.</p>
-                </div>
-                <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-white/5 hover:border-volt-primary transition-all group">
-                    <div class="text-4xl mb-6 group-hover:scale-125 transition-transform inline-block">🔒</div>
-                    <h3 class="text-xl font-bold mb-4 dark:text-white">بيئة معزولة</h3>
-                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">استخدام Shadow DOM يضمن أن التنسيقات لا تتداخل أبداً مع بقية الموقع.</p>
-                </div>
-                <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-white/5 hover:border-volt-primary transition-all group">
-                    <div class="text-4xl mb-6 group-hover:scale-125 transition-transform inline-block">💡</div>
-                    <h3 class="text-xl font-bold mb-4 dark:text-white">تخصيص كامل</h3>
-                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">تحكم كامل في الألوان، الخطوط، والبيانات عبر خصائص HTML بسيطة.</p>
+            <div class="flex flex-col gap-4 justify-center items-center px-4">
+                <a href="#install" class="w-full sm:w-auto bg-slate-900 dark:bg-white text-white dark:text-volt-dark px-8 py-4 rounded-2xl font-black text-lg shadow-2xl transition-all">التثبيت السريع</a>
+                <div class="ltr-code glass px-5 py-3 rounded-xl border-volt-primary/20 text-volt-primary font-mono text-xs sm:text-sm w-full sm:w-auto">
+                    npm install voltjs
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="live-demos" class="py-24 bg-slate-50/50 dark:bg-slate-900/20">
+    <section id="live-demos" class="py-20 bg-slate-50/50 dark:bg-slate-900/20">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-black mb-4 dark:text-white">مختبر <span class="text-gradient">الأمثلة الحية</span></h2>
-                <div class="h-1.5 w-24 bg-volt-primary mx-auto rounded-full"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="glass p-8 rounded-[2.5rem] border-volt-primary/20 group hover:shadow-2xl hover:shadow-volt-primary/10 transition-all">
-                    <div class="flex justify-between items-center mb-8">
-                        <h3 class="text-xl font-bold dark:text-white">📊 المخططات البيانية</h3>
-                        <span class="text-[10px] text-volt-primary font-mono bg-volt-primary/10 px-3 py-1 rounded-full">volt-chart</span>
-                    </div>
-                    <div class="h-64 flex items-end justify-around gap-4 px-4 bg-white/50 dark:bg-black/20 rounded-2xl p-6 border border-slate-100 dark:border-white/5">
-                        <div class="w-full bg-gradient-to-t from-volt-primary to-volt-secondary rounded-t-xl animate-pulse" style="height: 65%"></div>
-                        <div class="w-full bg-gradient-to-t from-volt-primary to-volt-secondary rounded-t-xl animate-pulse" style="height: 45%"></div>
-                        <div class="w-full bg-gradient-to-t from-volt-primary to-volt-secondary rounded-t-xl animate-pulse" style="height: 85%"></div>
-                        <div class="w-full bg-gradient-to-t from-volt-primary to-volt-secondary rounded-t-xl animate-pulse" style="height: 55%"></div>
-                    </div>
-                    <div class="ltr-code mt-6 bg-slate-900 p-4 rounded-xl text-xs text-blue-300">
-                        &lt;volt-widget use="chart" type="area" data="..." /&gt;
+            <h2 class="text-3xl font-black mb-12 text-center dark:text-white">أمثلة حية</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass p-6 rounded-3xl border-volt-primary/20">
+                    <h3 class="font-bold mb-4 dark:text-white">📊 مخططات بيانية</h3>
+                    <div class="h-40 flex items-end justify-around gap-2 bg-black/5 dark:bg-black/20 rounded-xl p-4">
+                        <div class="w-full bg-volt-primary rounded-t-lg" style="height: 60%"></div>
+                        <div class="w-full bg-volt-secondary rounded-t-lg" style="height: 90%"></div>
+                        <div class="w-full bg-volt-primary rounded-t-lg" style="height: 40%"></div>
                     </div>
                 </div>
-
-                <div class="glass p-8 rounded-[2.5rem] border-volt-secondary/20 group hover:shadow-2xl hover:shadow-volt-secondary/10 transition-all">
-                    <div class="flex justify-between items-center mb-8">
-                        <h3 class="text-xl font-bold dark:text-white">📅 التقويم الذكي</h3>
-                        <span class="text-[10px] text-volt-secondary font-mono bg-volt-secondary/10 px-3 py-1 rounded-full">volt-calendar</span>
-                    </div>
-                    <div class="bg-white/50 dark:bg-black/20 rounded-2xl p-6 border border-slate-100 dark:border-white/5">
-                        <div class="grid grid-cols-7 gap-2 mb-4">
-                            <script>for(let i=1; i<=21; i++) document.write(`<div class="aspect-square flex items-center justify-center rounded-lg text-[10px] dark:text-white ${i==12?'bg-volt-secondary text-white shadow-lg shadow-volt-secondary/50':'glass'}">${i}</div>`)</script>
-                        </div>
-                        <div class="h-2 w-full bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden"><div class="w-2/3 h-full bg-volt-secondary"></div></div>
-                    </div>
-                    <div class="ltr-code mt-6 bg-slate-900 p-4 rounded-xl text-xs text-pink-400">
-                        &lt;volt-widget use="calendar" view="month" /&gt;
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="install" class="py-24">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row gap-16 items-start">
-                <div class="lg:w-1/2">
-                    <h2 class="text-4xl font-black mb-12 dark:text-white">التثبيت <span class="text-gradient">في ثوانٍ</span></h2>
-                    <div class="space-y-12 relative step-line">
-                        <div class="relative z-10 flex gap-6">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-volt-primary text-volt-dark flex items-center justify-center font-bold shadow-lg shadow-volt-primary/20">1</div>
-                            <div class="w-full">
-                                <h4 class="text-xl font-bold mb-3 dark:text-white">استدعاء المحرك</h4>
-                                <div class="ltr-code bg-slate-900 rounded-xl p-4 font-mono text-sm text-blue-300 shadow-xl border border-white/5 overflow-x-auto">
-                                    &lt;script src="https://cdn.voltjs.com/v2/volt.min.js"&gt;&lt;/script&gt;
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative z-10 flex gap-6">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-volt-secondary text-white flex items-center justify-center font-bold shadow-lg shadow-volt-secondary/20">2</div>
-                            <div class="w-full">
-                                <h4 class="text-xl font-bold mb-3 dark:text-white">ابدأ الاستخدام</h4>
-                                <div class="ltr-code bg-slate-900 rounded-xl p-4 font-mono text-sm text-pink-400 shadow-xl border border-white/5 overflow-x-auto">
-                                    &lt;volt-widget use="table" data="api/users" /&gt;
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:w-1/2 w-full sticky top-32">
-                    <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-white/10">
-                        <div class="bg-slate-100 dark:bg-slate-800 p-4 flex gap-2 border-b border-slate-200 dark:border-white/5">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                        </div>
-                        <div class="ltr-code bg-[#0f172a] p-8 font-mono text-sm md:text-base leading-relaxed overflow-x-auto">
-                            <div class="mb-4 opacity-40 italic text-xs">// التخصيص الكامل للخط والبيانات</div>
-                            <div class="flex gap-2">
-                                <span class="text-pink-500">&lt;volt-widget</span>
-                            </div>
-                            <div class="pl-6 flex flex-col gap-1">
-                                <div><span class="text-cyan-400">use</span>=<span class="text-yellow-200">"chart"</span></div>
-                                <div><span class="text-cyan-400">volt-font</span>=<span class="text-yellow-200">"Cairo"</span></div>
-                                <div><span class="text-cyan-400">font-url</span>=<span class="text-yellow-200">"..."</span></div>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-pink-500">/&gt;</span>
-                            </div>
+                <div class="glass p-6 rounded-3xl border-volt-secondary/20">
+                    <h3 class="font-bold mb-4 dark:text-white">🖱️ SelectJS ويدجت</h3>
+                    <div class="bg-white/50 dark:bg-black/20 p-4 rounded-xl border border-slate-100 dark:border-white/5">
+                        <div class="flex justify-between items-center text-sm text-slate-400">
+                            <span>اختر الخيار...</span>
+                            <span>▼</span>
                         </div>
                     </div>
                 </div>
@@ -187,18 +85,8 @@
         </div>
     </section>
 
-    <footer class="py-20 bg-slate-50 dark:bg-volt-dark border-t border-slate-200 dark:border-white/5 transition-colors duration-500">
-        <div class="container mx-auto px-6 text-center">
-            <div class="mb-8 flex justify-center items-center gap-2 text-3xl font-black dark:text-white">
-                <span class="text-volt-primary">⚡</span> VoltJS
-            </div>
-            <div class="flex justify-center gap-10 mb-10">
-                <a href="#" class="text-slate-500 hover:text-volt-primary transition-colors font-medium">GitHub</a>
-                <a href="#" class="text-slate-500 hover:text-volt-primary transition-colors font-medium">NPM</a>
-                <a href="#" class="text-slate-500 hover:text-volt-primary transition-colors font-medium">أمثلة</a>
-            </div>
-            <p class="text-slate-400 text-sm">تم التطوير بشغف لتسريع الويب العربي &copy; 2026</p>
-        </div>
+    <footer class="py-12 border-t border-slate-200 dark:border-white/5 text-center">
+        <p class="text-slate-400 text-sm">VoltJS &copy; 2026 - صنع للمحترفين</p>
     </footer>
 
     <script>
